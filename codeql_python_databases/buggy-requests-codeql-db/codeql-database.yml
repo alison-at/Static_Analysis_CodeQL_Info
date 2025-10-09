@@ -1,0 +1,13 @@
+---
+sourceLocationPrefix: /home/ateske/buggyRequests/requests
+baselineLinesOfCode: 16186
+unicodeNewlines: false
+columnKind: utf32
+primaryLanguage: python
+creationMetadata:
+  sha: 9a0b392dee78eed0b256d765bfe28707c4ce21f3
+  cliVersion: 2.23.0
+  creationTime: 2025-10-03T17:59:38.789743517Z
+overlayBaseDatabase: false
+overlayDatabase: false
+finalised: true

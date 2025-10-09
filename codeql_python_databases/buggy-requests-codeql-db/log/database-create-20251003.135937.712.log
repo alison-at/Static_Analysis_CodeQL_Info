@@ -1,0 +1,1125 @@
+[2025-10-03 13:59:37] This is codeql database create codeql-db --language=python --command=python setup.py build
+[2025-10-03 13:59:37] Log file was started late.
+[2025-10-03 13:59:37] [PROGRESS] database create> Initializing database at /home/ateske/buggyRequests/requests/codeql-db.
+[2025-10-03 13:59:37] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/home/ateske/buggyRequests/requests/qlconfig.yml --source-root=/home/ateske/buggyRequests/requests --allow-missing-source-root=false --allow-already-existing -- /home/ateske/buggyRequests/requests/codeql-db
+[2025-10-03 13:59:37] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/ateske/codeql/codeql/.codeqlmanifest.json
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/python/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/actions/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/csharp/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/java/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/javascript/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/properties/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/yaml/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/cpp/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/swift/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/csv/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/html/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/go/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/xml/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/ruby/codeql-extractor.yml.
+[2025-10-03 13:59:38] [DETAILS] resolve languages> Parsing /home/ateske/codeql/codeql/rust/codeql-extractor.yml.
+[2025-10-03 13:59:38] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/properties"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/yaml"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/csv"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/html"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/xml"
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "rust" : [
+                            {
+                              "extractor_root" : "/home/ateske/codeql/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-10-03 13:59:38] [PROGRESS] database init> Calculating baseline information in /home/ateske/buggyRequests/requests
+[2025-10-03 13:59:38] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-10-03 13:59:38] [DETAILS] database init> Running command in /home/ateske/buggyRequests/requests: /home/ateske/codeql/codeql/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-10-03 13:59:38] Using configure-baseline script /home/ateske/codeql/codeql/javascript/tools/configure-baseline.sh.
+[2025-10-03 13:59:38] [PROGRESS] database init> Running command in /home/ateske/buggyRequests/requests: [/home/ateske/codeql/codeql/javascript/tools/configure-baseline.sh]
+[2025-10-03 13:59:38] [SPAMMY] database init> Found 98 baseline files for python.
+[2025-10-03 13:59:38] [SPAMMY] database init> Found 1 baseline files for javascript.
+[2025-10-03 13:59:38] [PROGRESS] database init> Calculated baseline information for languages: javascript, python (106ms).
+[2025-10-03 13:59:38] [PROGRESS] database init> Resolving extractor python.
+[2025-10-03 13:59:38] [DETAILS] database init> Found candidate extractor root for python: /home/ateske/codeql/codeql/python.
+[2025-10-03 13:59:38] [PROGRESS] database init> Successfully loaded extractor Python (python) from /home/ateske/codeql/codeql/python.
+[2025-10-03 13:59:38] [PROGRESS] database init> Created skeleton CodeQL database at /home/ateske/buggyRequests/requests/codeql-db. This in-progress database is ready to be populated by an extractor.
+[2025-10-03 13:59:38] Plumbing command codeql database init completed.
+[2025-10-03 13:59:38] [PROGRESS] database create> Running build command: [python, setup.py, build]
+[2025-10-03 13:59:38] Running plumbing command: codeql database trace-command --working-dir=/home/ateske/buggyRequests/requests --index-traceless-dbs --no-db-cluster -- /home/ateske/buggyRequests/requests/codeql-db python setup.py build
+[2025-10-03 13:59:38] Using autobuild script /home/ateske/codeql/codeql/python/tools/autobuild.sh.
+[2025-10-03 13:59:38] [PROGRESS] database trace-command> Running command in /home/ateske/buggyRequests/requests: [/home/ateske/codeql/codeql/python/tools/autobuild.sh]
+[2025-10-03 13:59:39] [build-stderr] /bin/sh: 1: python2: not found
+[2025-10-03 13:59:39] [build-stdout] Source root appears to be the real root.
+[2025-10-03 13:59:39] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-10-03 13:59:39] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-10-03 13:59:39] [build-stdout] Found Trove classifiers for both Python 2 and Python 3 in setup.py -- will use Python 3
+[2025-10-03 13:59:39] [build-stdout] Trying to guess Python version based on installed versions
+[2025-10-03 13:59:39] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-10-03 13:59:39] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-10-03 13:59:39] [build-stdout] Calling python3 -S /home/ateske/codeql/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /home/ateske/buggyRequests/requests/codeql-db/working/trap_cache -R /home/ateske/buggyRequests/requests
+[2025-10-03 13:59:39] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-10-03 13:59:39] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-10-03 13:59:39] [build-stdout] [INFO] sys_path is: ['/home/ateske/codeql/codeql/python/tools', '/usr/local/opencv-4.8.0/build/modules/python', '/home/ateske/anaconda3/lib/python313.zip', '/home/ateske/anaconda3/lib/python3.13', '/home/ateske/anaconda3/lib/python3.13/lib-dynload']
+[2025-10-03 13:59:39] [build-stdout] [INFO] Python version 3.13.5
+[2025-10-03 13:59:39] [build-stdout] [INFO] Python extractor version 7.1.3
+[2025-10-03 13:59:39] [build-stderr] <unknown>:5: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:6: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:5: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:5: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [20] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/__init__.py in 31ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [22] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/big5prober.py in 29ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [19] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/gb2312prober.py in 27ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [13] Extracted file /home/ateske/buggyRequests/requests/requests/packages/__init__.py in 27ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [1] Extracted file /home/ateske/buggyRequests/requests/requests/__init__.py in 52ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [2] Extracted file /home/ateske/buggyRequests/requests/requests/certs.py in 28ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:6: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:5: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stderr] <unknown>:5: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [15] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/sbcsgroupprober.py in 51ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [11] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/charsetprober.py in 59ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [32] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/constants.py in 18ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [26] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/cp949prober.py in 25ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [26] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/ssl_match_hostname in 2ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [13] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/mbcsgroupprober.py in 23ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [6] Extracted file /home/ateske/buggyRequests/requests/requests/compat.py in 64ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [27] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/compat.py in 25ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [8] Extracted file /home/ateske/buggyRequests/requests/requests/api.py in 77ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [38] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/chardet in 3ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [23] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/chardetect.py in 67ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [23] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/__init__.py in 8ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:13: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [22] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/codingstatemachine.py in 41ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [24] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/euctwprober.py in 27ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/euckrprober.py in 29ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:55: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [25] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/escprober.py in 65ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:82: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [48] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages in 3ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [2] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/mbcharsetprober.py in 76ms
+[2025-10-03 13:59:39] [build-stderr] <unknown>:10: SyntaxWarning: invalid escape sequence '\*'
+[2025-10-03 13:59:39] [build-stdout] [INFO] [20] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/sjisprober.py in 75ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [20] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/request.py in 32ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [21] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/hebrewprober.py in 106ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [23] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/backports in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [23] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/filepost.py in 63ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [22] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/contrib/__init__.py in 7ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [22] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/ssl_match_hostname/__init__.py in 13ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/backports/__init__.py in 4ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [25] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/__init__.py in 22ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [32] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/eucjpprober.py in 80ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [30] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/utf8prober.py in 61ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [39] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/__init__.py in 60ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [35] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/charsetgroupprober.py in 83ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [12] Extracted file /home/ateske/buggyRequests/requests/requests/structures.py in 95ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [45] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py in 69ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [26] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/backports/makefile.py in 80ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [42] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/urllib3/contrib in 3ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [23] Extracted file /home/ateske/buggyRequests/requests/requests/hooks.py in 26ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [8] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/contrib/socks.py in 102ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [17] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/latin1prober.py in 132ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [17] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/urllib3/util in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [27] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/fields.py in 117ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [13] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/contrib/ntlmpool.py in 118ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [40] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/sbcharsetprober.py in 114ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [32] Extracted folder /home/ateske/buggyRequests/requests/requests/packages/urllib3 in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [21] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/connection.py in 88ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [18] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/chardistribution.py in 187ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [30] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/response.py in 41ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [28] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/universaldetector.py in 158ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [2] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/timeout.py in 109ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [48] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/exceptions.py in 127ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [45] Extracted file /home/ateske/buggyRequests/requests/tests/__init__.py in 9ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [8] Extracted file /home/ateske/buggyRequests/requests/tests/test_hooks.py in 16ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [45] Extracted file /home/ateske/buggyRequests/requests/tests/utils.py in 13ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [45] Extracted file /home/ateske/buggyRequests/requests/tests/conftest.py in 15ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [39] Extracted file /home/ateske/buggyRequests/requests/requests/status_codes.py in 93ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/request.py in 84ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [25] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/url.py in 126ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [46] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/contrib/appengine.py in 170ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [32] Extracted folder /home/ateske/buggyRequests/requests/requests/packages in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [18] Extracted folder /home/ateske/buggyRequests/requests/tests/testserver in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [30] Extracted folder /home/ateske/buggyRequests/requests/requests in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [30] Extracted file /home/ateske/buggyRequests/requests/setup.py in 66ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [9] Extracted file /home/ateske/buggyRequests/requests/requests/auth.py in 239ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [23] Extracted file /home/ateske/buggyRequests/requests/tests/test_lowlevel.py in 47ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [8] Extracted file /home/ateske/buggyRequests/requests/docs/_themes/flask_theme_support.py in 45ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted file /home/ateske/buggyRequests/requests/tests/compat.py in 18ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [18] Extracted file /home/ateske/buggyRequests/requests/tests/test_structures.py in 57ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted file /home/ateske/buggyRequests/requests/tests/testserver/__init__.py in 4ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [45] Extracted file /home/ateske/buggyRequests/requests/docs/conf.py in 38ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted folder /home/ateske/buggyRequests/requests/tests in 2ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [32] Extracted file /home/ateske/buggyRequests/requests/requests/exceptions.py in 67ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted folder /home/ateske/buggyRequests/requests/docs/_themes in 0ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted folder /home/ateske/buggyRequests/requests/docs in 0ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Extracted module sys in 0ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/__future__.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/os.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/re/__init__.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [29] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/escsm.py in 217ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [47] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/retry.py in 190ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [36] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/collections/__init__.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [21] Extracted folder /home/ateske/anaconda3/lib/python3.13/collections in 1ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [28] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/codecs.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [13] Extracted file /home/ateske/buggyRequests/requests/tests/testserver/server.py in 110ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [12] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/util/ssl_.py in 209ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [22] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/poolmanager.py in 217ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [32] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/io.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [26] Extracted file /home/ateske/buggyRequests/requests/tests/test_testserver.py in 153ms
+[2025-10-03 13:59:39] [build-stdout] [INFO] [2] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/logging/__init__.py
+[2025-10-03 13:59:39] [build-stdout] [INFO] [42] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/ordered_dict.py in 252ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [41] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/contrib/pyopenssl.py in 275ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [3] Extracted file /home/ateske/buggyRequests/requests/requests/adapters.py in 352ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [48] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/argparse.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [17] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/connection.py in 223ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [20] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/_collections.py in 238ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [10] Extracted file /home/ateske/buggyRequests/requests/requests/cookies.py in 386ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [30] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/ssl.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [7] Extracted file /home/ateske/buggyRequests/requests/requests/sessions.py in 402ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [23] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/http/cookies.py
+[2025-10-03 13:59:40] [build-stdout] [WARN] [40] Failed to find .compat, no parent package of Python module at /home/ateske/buggyRequests/requests/tests/test_requests.py
+[2025-10-03 13:59:40] [build-stdout] [WARN] [40] Failed to find .utils, no parent package of Python module at /home/ateske/buggyRequests/requests/tests/test_requests.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [27] Extracted file /home/ateske/buggyRequests/requests/tests/test_utils.py in 245ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [45] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/datetime.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [35] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/response.py in 302ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [39] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/copy.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [33] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/langgreekmodel.py in 447ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [9] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/base64.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [8] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/socket.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [25] Extracted folder /home/ateske/anaconda3/lib/python3.13/logging in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [46] Extracted module binascii in 5ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [4] Extracted file /home/ateske/buggyRequests/requests/requests/utils.py in 503ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [18] Extracted module time in 5ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [29] Extracted folder /home/ateske/anaconda3/lib/python3.13/re in 2ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [1] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/mbcssm.py in 478ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [5] Extracted file /home/ateske/buggyRequests/requests/requests/models.py in 531ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [36] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/struct.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [21] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/contextlib.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [47] Extracted folder /home/ateske/anaconda3/lib/python3.13/http in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [28] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/warnings.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [12] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/http/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [22] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/hashlib.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [13] Extracted module select in 4ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [26] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/netrc.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [32] Extracted folder /home/ateske/anaconda3/lib/python3.13/email in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [2] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/threading.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [38] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/connectionpool.py in 494ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [16] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/langbulgarianmodel.py in 563ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [42] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/utils.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [41] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/calendar.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [3] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/urllib/parse.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [17] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [10] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/queue.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [30] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/hmac.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [20] Extracted folder /home/ateske/anaconda3/lib/python3.13/urllib in 2ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [23] Extracted folder /home/ateske/codeql/codeql/python/tools/data/python/stubs/six in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [27] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/http/client.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [45] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/http/cookiejar.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [35] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/urllib/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [39] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/mimetypes.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [33] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/uuid.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [7] Extracted module errno in 6ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [9] Extracted folder /home/ateske/anaconda3/lib/python3.13/json in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [25] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/urllib/request.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [7] Extracted module zlib in 5ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [46] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/json/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [4] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/encodings/idna.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [18] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/encodings/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [29] Extracted folder /home/ateske/anaconda3/lib/python3.13/encodings in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [1] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/functools.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [34] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/langhungarianmodel.py in 543ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [43] Extracted file /home/ateske/buggyRequests/requests/requests/packages/urllib3/packages/six.py in 536ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [5] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/operator.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [21] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/types.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [19] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/langthaimodel.py in 586ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [36] Extracted module itertools in 9ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [44] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/euctwfreq.py in 612ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [48] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/__init__.py in 128ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [47] Extracted folder /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [24] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/langhebrewmodel.py in 652ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [14] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/langcyrillicmodel.py in 720ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [15] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/jisfreq.py in 773ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [28] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/__init__.py in 181ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [22] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/simpledialog.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [26] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/reprlib.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [12] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/mime/nonmultipart.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [2] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/scrolledtext.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [13] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/filedialog.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [22] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/dbm/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [42] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/dnd.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [42] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/http/server.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [16] Extracted folder /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [16] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/xmlrpc/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [17] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/socketserver.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [16] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/mime/text.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [23] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/dialog.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [20] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/dbm/gnu.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [27] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/xmlrpc/client.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [42] Extracted folder /home/ateske/anaconda3/lib/python3.13/html in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [35] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/configparser.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [39] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/mime/multipart.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [9] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/html/entities.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [33] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/xmlrpc/server.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [8] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/mime/image.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [25] Extracted folder /home/ateske/anaconda3/lib/python3.13/importlib in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [7] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/font.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [46] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/importlib/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [18] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/shlex.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [29] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/colorchooser.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [1] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/html/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [43] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/commondialog.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [21] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/ttk.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [19] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/constants.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [34] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/mime/base.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [21] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/subprocess.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [44] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/copyreg.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [24] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/pickle.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [47] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [28] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/tkinter/messagebox.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [34] Extracted module builtins in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [28] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/email/mime/__init__.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [48] Extracted folder /home/ateske/anaconda3/lib/python3.13/email/mime in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [13] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/dbm/ndbm.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [38] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/html/parser.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [32] Extracted folder /home/ateske/anaconda3/lib/python3.13/xmlrpc in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [16] Extracted folder /home/ateske/anaconda3/lib/python3.13/tkinter in 0ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [26] Extracted folder /home/ateske/anaconda3/lib/python3.13/dbm in 1ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [4] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib/__init__.py in 11ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [2] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib_robotparser.py in 16ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [3] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/urllib/robotparser.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [41] Extracted module _thread in 6ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [15] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib_error.py in 8ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [10] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/urllib/error.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [47] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib_response.py in 20ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [30] Skipped built-in file /home/ateske/anaconda3/lib/python3.13/urllib/response.py
+[2025-10-03 13:59:40] [build-stdout] [INFO] [20] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib_parse.py in 37ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [12] Extracted file /home/ateske/codeql/codeql/python/tools/data/python/stubs/six/moves/urllib_request.py in 55ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [6] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/gb2312freq.py in 920ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [11] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/jpcntx.py in 986ms
+[2025-10-03 13:59:40] [build-stdout] [INFO] [31] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/euckrfreq.py in 1117ms
+[2025-10-03 13:59:41] [build-stdout] [INFO] [40] Extracted file /home/ateske/buggyRequests/requests/tests/test_requests.py in 1267ms
+[2025-10-03 13:59:41] [build-stdout] [INFO] [37] Extracted file /home/ateske/buggyRequests/requests/requests/packages/chardet/big5freq.py in 1784ms
+[2025-10-03 13:59:41] [build-stdout] [INFO] Processed 223 modules in 1.91s
+[2025-10-03 13:59:41] [PROGRESS] database trace-command> Running command in /home/ateske/buggyRequests/requests: [python, setup.py, build]
+[2025-10-03 13:59:41] [build-stderr] /home/ateske/buggyRequests/requests/setup.py:10: SetuptoolsDeprecationWarning: The test command is disabled and references to it are deprecated.
+[2025-10-03 13:59:41] [build-stderr] !!
+[2025-10-03 13:59:41] [build-stderr]         ********************************************************************************
+[2025-10-03 13:59:41] [build-stderr]         Please remove any references to `setuptools.command.test` in all supported versions of the affected package.
+[2025-10-03 13:59:41] [build-stderr]         This deprecation is overdue, please update your project and remove deprecated
+[2025-10-03 13:59:41] [build-stderr]         calls to avoid build errors in the future.
+[2025-10-03 13:59:41] [build-stderr]         ********************************************************************************
+[2025-10-03 13:59:41] [build-stderr] !!
+[2025-10-03 13:59:41] [build-stderr]   from setuptools.command.test import test as TestCommand
+[2025-10-03 13:59:41] [build-stderr] Warning: 'classifiers' should be a list, got type 'tuple'
+[2025-10-03 13:59:41] [build-stderr] /home/ateske/buggyRequests/venv/lib/python3.13/site-packages/setuptools/_distutils/dist.py:289: UserWarning: Unknown distribution option: 'tests_require'
+[2025-10-03 13:59:41] [build-stderr]   warnings.warn(msg)
+[2025-10-03 13:59:41] [build-stderr] /home/ateske/buggyRequests/venv/lib/python3.13/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+[2025-10-03 13:59:41] [build-stderr] !!
+[2025-10-03 13:59:41] [build-stderr]         ********************************************************************************
+[2025-10-03 13:59:41] [build-stderr]         Please consider removing the following classifiers in favor of a SPDX license expression:
+[2025-10-03 13:59:41] [build-stderr]         License :: OSI Approved :: Apache Software License
+[2025-10-03 13:59:41] [build-stderr]         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+[2025-10-03 13:59:41] [build-stderr]         ********************************************************************************
+[2025-10-03 13:59:41] [build-stderr] !!
+[2025-10-03 13:59:41] [build-stderr]   self._finalize_license_expression()
+[2025-10-03 13:59:41] [build-stdout] running build
+[2025-10-03 13:59:41] [build-stdout] running build_py
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/__init__.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/adapters.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/certs.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/utils.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/compat.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/sessions.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/models.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/api.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/auth.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/cookies.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/structures.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/exceptions.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/status_codes.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] copying requests/hooks.py -> build/lib/requests
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/__init__.py -> build/lib/requests/packages
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/__init__.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/sbcsgroupprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/gb2312prober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/charsetprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/big5prober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/langcyrillicmodel.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/latin1prober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/langbulgarianmodel.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/hebrewprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/chardistribution.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/chardetect.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/mbcharsetprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/euctwprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/escprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/codingstatemachine.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/sjisprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/langthaimodel.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/compat.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/constants.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/langgreekmodel.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/mbcsgroupprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/charsetgroupprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/cp949prober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/universaldetector.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/mbcssm.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/utf8prober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/euckrprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/jisfreq.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/big5freq.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/escsm.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/euckrfreq.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/langhungarianmodel.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/eucjpprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/sbcharsetprober.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/gb2312freq.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/euctwfreq.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/jpcntx.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/chardet/langhebrewmodel.py -> build/lib/requests/packages/chardet
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/__init__.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/fields.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/connectionpool.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/filepost.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/request.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/exceptions.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/poolmanager.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/connection.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/_collections.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/response.py -> build/lib/requests/packages/urllib3
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages/urllib3/packages
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/packages/__init__.py -> build/lib/requests/packages/urllib3/packages
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/packages/six.py -> build/lib/requests/packages/urllib3/packages
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/packages/ordered_dict.py -> build/lib/requests/packages/urllib3/packages
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages/urllib3/contrib
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/contrib/__init__.py -> build/lib/requests/packages/urllib3/contrib
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/contrib/ntlmpool.py -> build/lib/requests/packages/urllib3/contrib
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/contrib/pyopenssl.py -> build/lib/requests/packages/urllib3/contrib
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/contrib/socks.py -> build/lib/requests/packages/urllib3/contrib
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/contrib/appengine.py -> build/lib/requests/packages/urllib3/contrib
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/__init__.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/retry.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/ssl_.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/timeout.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/request.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/connection.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/response.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/util/url.py -> build/lib/requests/packages/urllib3/util
+[2025-10-03 13:59:41] [build-stdout] creating build/lib/requests/packages/urllib3/packages/ssl_match_hostname
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/packages/ssl_match_hostname/__init__.py -> build/lib/requests/packages/urllib3/packages/ssl_match_hostname
+[2025-10-03 13:59:41] [build-stdout] copying requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py -> build/lib/requests/packages/urllib3/packages/ssl_match_hostname
+[2025-10-03 13:59:41] [build-stdout] running egg_info
+[2025-10-03 13:59:41] [build-stdout] creating requests.egg-info
+[2025-10-03 13:59:41] [build-stdout] writing requests.egg-info/PKG-INFO
+[2025-10-03 13:59:41] [build-stdout] writing dependency_links to requests.egg-info/dependency_links.txt
+[2025-10-03 13:59:41] [build-stdout] writing requirements to requests.egg-info/requires.txt
+[2025-10-03 13:59:41] [build-stdout] writing top-level names to requests.egg-info/top_level.txt
+[2025-10-03 13:59:41] [build-stdout] writing manifest file 'requests.egg-info/SOURCES.txt'
+[2025-10-03 13:59:41] [build-stdout] reading manifest file 'requests.egg-info/SOURCES.txt'
+[2025-10-03 13:59:41] [build-stdout] reading manifest template 'MANIFEST.in'
+[2025-10-03 13:59:41] [build-stderr] warning: no files found matching 'test_requests.py'
+[2025-10-03 13:59:41] [build-stdout] adding license file 'LICENSE'
+[2025-10-03 13:59:41] [build-stdout] adding license file 'NOTICE'
+[2025-10-03 13:59:41] [build-stdout] adding license file 'AUTHORS.rst'
+[2025-10-03 13:59:41] [build-stdout] writing manifest file 'requests.egg-info/SOURCES.txt'
+[2025-10-03 13:59:41] [build-stdout] copying requests/cacert.pem -> build/lib/requests
+[2025-10-03 13:59:41] Plumbing command codeql database trace-command completed.
+[2025-10-03 13:59:41] [PROGRESS] database create> Finalizing database at /home/ateske/buggyRequests/requests/codeql-db.
+[2025-10-03 13:59:41] Running plumbing command: codeql database finalize --no-db-cluster -- /home/ateske/buggyRequests/requests/codeql-db
+[2025-10-03 13:59:42] Using pre-finalize script /home/ateske/codeql/codeql/python/tools/pre-finalize.sh.
+[2025-10-03 13:59:42] [PROGRESS] database finalize> Running pre-finalize script /home/ateske/codeql/codeql/python/tools/pre-finalize.sh in /home/ateske/buggyRequests/requests.
+[2025-10-03 13:59:42] Running plumbing command: codeql database trace-command --working-dir=/home/ateske/buggyRequests/requests --no-tracing -- /home/ateske/buggyRequests/requests/codeql-db /home/ateske/codeql/codeql/python/tools/pre-finalize.sh
+[2025-10-03 13:59:42] [PROGRESS] database trace-command> Running command in /home/ateske/buggyRequests/requests: [/home/ateske/codeql/codeql/python/tools/pre-finalize.sh]
+[2025-10-03 13:59:43] [build-stderr] Scanning for files in /home/ateske/buggyRequests/requests...
+[2025-10-03 13:59:43] [build-stderr] /home/ateske/buggyRequests/requests/codeql-db: Indexing files in in /home/ateske/buggyRequests/requests...
+[2025-10-03 13:59:43] [build-stderr] Running command in /home/ateske/buggyRequests/requests: [/home/ateske/codeql/codeql/yaml/tools/index-files.sh, /home/ateske/buggyRequests/requests/codeql-db/working/files-to-index16103294446279248926.list]
+[2025-10-03 13:59:43] Plumbing command codeql database trace-command completed.
+[2025-10-03 13:59:43] [PROGRESS] database finalize> Pre-finalize script /home/ateske/codeql/codeql/python/tools/pre-finalize.sh completed in 1748 ms.
+[2025-10-03 13:59:43] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /home/ateske/buggyRequests/requests/codeql-db...
+[2025-10-03 13:59:43] Running plumbing command: codeql dataset import --dbscheme=/home/ateske/codeql/codeql/python/semmlecode.python.dbscheme -- /home/ateske/buggyRequests/requests/codeql-db/db-python /home/ateske/buggyRequests/requests/codeql-db/trap/python
+[2025-10-03 13:59:43] Clearing disk cache since the version file /home/ateske/buggyRequests/requests/codeql-db/db-python/default/cache/version does not exist
+[2025-10-03 13:59:44] Tuple pool not found. Clearing relations with cached strings
+[2025-10-03 13:59:44] Trimming disk cache at /home/ateske/buggyRequests/requests/codeql-db/db-python/default/cache in mode clear.
+[2025-10-03 13:59:44] Sequence stamp origin is -5996829257884678983
+[2025-10-03 13:59:44] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-10-03 13:59:44] Unpausing evaluation
+[2025-10-03 13:59:44] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-10-03 13:59:44] Unpausing evaluation
+[2025-10-03 13:59:44] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-10-03 13:59:44] Unpausing evaluation
+[2025-10-03 13:59:44] Trimming completed (7ms): Purged everything.
+[2025-10-03 13:59:44] Scanning for files in /home/ateske/buggyRequests/requests/codeql-db/trap/python
+[2025-10-03 13:59:44] Found 198 TRAP files (9.50 MiB)
+[2025-10-03 13:59:44] [PROGRESS] dataset import> Importing TRAP files
+[2025-10-03 13:59:44] Importing $files.2xkVIsiMu3yVYzfHk9Qd0GYA7Zs=.trap.gz (1 of 198)
+[2025-10-03 13:59:44] Importing $files.4crkhUX3xpDn7xW8yP_w6m6ILTc=.trap.gz (2 of 198)
+[2025-10-03 13:59:44] Importing $files.5Nq042875GzRi-1J1B2Ez-4sUZg=.trap.gz (3 of 198)
+[2025-10-03 13:59:44] Importing $files.5jPxRlJOhW-wNW3PgvNLZ1d0HN0=.trap.gz (4 of 198)
+[2025-10-03 13:59:44] Importing $files.63BrjegHVcbeKc6_V2I21Z9hCkE=.trap.gz (5 of 198)
+[2025-10-03 13:59:44] Importing $files.6oVnjnLsqZrwjCvQzdLzpD4BSqk=.trap.gz (6 of 198)
+[2025-10-03 13:59:44] Importing $files.BcfAI4itHo80_-cFtoGjtjC5fN8=.trap.gz (7 of 198)
+[2025-10-03 13:59:44] Importing $files.BwCPRBUWkbD-Bgtb00hMMmjw3Yg=.trap.gz (8 of 198)
+[2025-10-03 13:59:44] Importing $files.HDDXK7Akep0dAPdUGxG8-hlMZfk=.trap.gz (9 of 198)
+[2025-10-03 13:59:44] Importing $files.J9_aOFFF7jDKGNNE6asCUYv83RU=.trap.gz (10 of 198)
+[2025-10-03 13:59:44] Importing $files.K3uPNNvng8hx0yYiUP_sMPs8PGw=.trap.gz (11 of 198)
+[2025-10-03 13:59:44] Importing $files.MCaFHcCUbE7BEc8GM2Mf1y9g5SI=.trap.gz (12 of 198)
+[2025-10-03 13:59:44] Importing $files.MbSkeB8zb8XHA53rzxoHDzLZtpc=.trap.gz (13 of 198)
+[2025-10-03 13:59:44] Importing $files.Mw6Hz1tBEzoIXRZUp7fOkr_vKTw=.trap.gz (14 of 198)
+[2025-10-03 13:59:44] Importing $files.NJDF6pEyetFUKD_lNOKHSWfSSLQ=.trap.gz (15 of 198)
+[2025-10-03 13:59:44] Importing $files.NSENuXZLuXMyXhG3cvZazjXgnQ0=.trap.gz (16 of 198)
+[2025-10-03 13:59:44] Importing $files.P6sxjVQfBK9-87bLElF4l63wAF0=.trap.gz (17 of 198)
+[2025-10-03 13:59:44] Importing $files.QrNBUPjSIf-pU1MO_zu0G-eU5P8=.trap.gz (18 of 198)
+[2025-10-03 13:59:44] Importing $files.S3mJ8NfGeJVlVOB3LjQBpZZDtjE=.trap.gz (19 of 198)
+[2025-10-03 13:59:44] Importing $files.SU21Bgmfh-qyaOqO9W5k9YNPbho=.trap.gz (20 of 198)
+[2025-10-03 13:59:44] Importing $files.Segrb7iIgxEPvgwOdBTjtk5qs_M=.trap.gz (21 of 198)
+[2025-10-03 13:59:44] Importing $files.WIluEjw-FrZ3ZLxHn7d9wkYIb3A=.trap.gz (22 of 198)
+[2025-10-03 13:59:44] Importing $files.XMF7pAhlHZ4ZAv3e93fSKGRJDhc=.trap.gz (23 of 198)
+[2025-10-03 13:59:44] Importing $files.bDw1CWVWx5DxEXv3YY9rSHy4YYo=.trap.gz (24 of 198)
+[2025-10-03 13:59:44] Importing $files.cYCnnZ1iiX6KgQewUrMQARO7mkc=.trap.gz (25 of 198)
+[2025-10-03 13:59:44] Importing $files.dhDqV04M4Dd3U1GHKLKRwK7vAvE=.trap.gz (26 of 198)
+[2025-10-03 13:59:44] Importing $files.eVPu4v_M_eRsHUyA7mSYTlmUwAI=.trap.gz (27 of 198)
+[2025-10-03 13:59:44] Importing $files.fa1z1oTYt9X6X2L8YuLG8Uy9OtU=.trap.gz (28 of 198)
+[2025-10-03 13:59:44] Importing $files.g9sl3fn0-VwBIDuufdHqfYMXDvc=.trap.gz (29 of 198)
+[2025-10-03 13:59:44] Importing $files.gXp-QbXFmUJHY6-Lv6xdQ0xoQQk=.trap.gz (30 of 198)
+[2025-10-03 13:59:44] Importing $files.gejZTmNWxXQSCZK6_IjYWnUiYjU=.trap.gz (31 of 198)
+[2025-10-03 13:59:44] Importing $files.ghBmoyhb2eeIPakvCT0co9d1kl8=.trap.gz (32 of 198)
+[2025-10-03 13:59:44] Importing $files.i9x0qK2jkWW7rNTY4xH_uJl-r4I=.trap.gz (33 of 198)
+[2025-10-03 13:59:44] Importing $files.ir8yz5KYQLVJFHdhrwlvZQVuAt4=.trap.gz (34 of 198)
+[2025-10-03 13:59:44] Importing $files.jC3TGKgGDJ9FToHbdIR6ENZsEfQ=.trap.gz (35 of 198)
+[2025-10-03 13:59:44] Importing $files.kFUksg8L65HD4AHLBhfuR64AJtM=.trap.gz (36 of 198)
+[2025-10-03 13:59:44] Importing $files.kH5GkdOBE0bGymWJMnrwCkxV6Oc=.trap.gz (37 of 198)
+[2025-10-03 13:59:44] Importing $files.kirW_Pk9sznHWkKTmQCg-Yv64H0=.trap.gz (38 of 198)
+[2025-10-03 13:59:44] Importing $files.mXhtjtffFEra2Fzwi7IRRldQxdo=.trap.gz (39 of 198)
+[2025-10-03 13:59:44] Importing $files.nS6ZTWnKR8lzXC3oWCOWwWjcUkg=.trap.gz (40 of 198)
+[2025-10-03 13:59:44] Importing $files.o0WAERMwGDp5Xr4KtSBM-StcN5g=.trap.gz (41 of 198)
+[2025-10-03 13:59:44] Importing $files.pfCAN9PkbDRmi1ZRFJt9eL7tA1k=.trap.gz (42 of 198)
+[2025-10-03 13:59:44] Importing $files.r4UnlHHyMzN3J9s4jBTA_uxisMo=.trap.gz (43 of 198)
+[2025-10-03 13:59:44] Importing $files.ukur4o8xkMdNdSPFdwavl5_BIjQ=.trap.gz (44 of 198)
+[2025-10-03 13:59:44] Importing $files.vn9SdFZewsjnzs8p-h_a__TcNNY=.trap.gz (45 of 198)
+[2025-10-03 13:59:44] Importing $files.x4E3mf2qbCLYn7dLC4QtHv5rPRQ=.trap.gz (46 of 198)
+[2025-10-03 13:59:44] Importing $files.zLW4T1L_YY7Zb8XUXvpbHl1EI9M=.trap.gz (47 of 198)
+[2025-10-03 13:59:44] Importing $files.zqv_RBKOoQ9gujH_MkU2as-4doY=.trap.gz (48 of 198)
+[2025-10-03 13:59:44] Importing $flags.yuBZtgNAyWewJzKxfJG7Um4GfZ4=.trap.gz (49 of 198)
+[2025-10-03 13:59:44] Importing $interpreter3.NF3SnmYcW4BOncpf4XgE3ehC3Qg=.trap.gz (50 of 198)
+[2025-10-03 13:59:44] Importing $stdlib_33.Z6Nz-b30A9YxTTn24oPt8c2CvME=.trap (51 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.-ZeM4EjB0TaS7DJdkhmlpASIJOY=.trap.gz (52 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.8I7Rfed-DuohY0BPKOvLtDZddjY=.trap.gz (53 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.D9o7wh5sHn-tuk_4DFTdmZPKlVE=.trap.gz (54 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.FZmRuKK_oyrJieeKzWHZihuZD2A=.trap.gz (55 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.Hfg5h5RW1xIZIiQJgXDYTxw-Skw=.trap.gz (56 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.ITLB5JlIXrF6iqorXndldMiwW0c=.trap.gz (57 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.SNH4WD16vJw0xTUl1R1Jn6mwDpY=.trap.gz (58 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.VijCFG7vniIiNWjZVU2Ufsv1R5U=.trap.gz (59 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.WHR0oZbqcO-2J0Q8w9HmgqamrV8=.trap.gz (60 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.aZn9--yK3WamehYoAtYnGZ0fL3s=.trap.gz (61 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.hS1YGUICTjdeUv2b25dgoAr_ui4=.trap.gz (62 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.qnZNx8XaYhUBRFY-Hb0W4D73qH0=.trap.gz (63 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.rA-phjULupX3-aRQ6ahmZiPU9Mo=.trap.gz (64 of 198)
+[2025-10-03 13:59:44] Importing __init__.py.sfaD4Owd98ZfmS384SdzRmnYlDY=.trap.gz (65 of 198)
+[2025-10-03 13:59:44] Importing _collections.py.kQ9wv_t_5ad1tlQfqwT2JqlG8-Y=.trap.gz (66 of 198)
+[2025-10-03 13:59:44] Importing _implementation.py.c2n4Wv85c-srTpRrBrmtp7MGHF4=.trap.gz (67 of 198)
+[2025-10-03 13:59:44] Importing _themes.saibz9INrlBBKak5qkTuhZmvR-g=.trap.gz (68 of 198)
+[2025-10-03 13:59:44] Importing _thread.sQGDeyszJFVzzzBP8hZFhnzXprs=.trap.gz (69 of 198)
+[2025-10-03 13:59:44] Importing adapters.py.wux2nnBSAf5hTX_WbyamFpJfueE=.trap.gz (70 of 198)
+[2025-10-03 13:59:44] Importing api.py.js9Wwozxkniz207Sh2OklSbt8EM=.trap.gz (71 of 198)
+[2025-10-03 13:59:44] Importing appengine.py.YeMikxHH0bU6FqlKk4nY5cZT3os=.trap.gz (72 of 198)
+[2025-10-03 13:59:44] Importing auth.py.8Zb26TYxqfDaMyKGO-os6i76Nzg=.trap.gz (73 of 198)
+[2025-10-03 13:59:44] Importing backports.De3DVmO9ftRRPVKfDvfj5SY4jPg=.trap.gz (74 of 198)
+[2025-10-03 13:59:44] Importing big5freq.py.AvAeEMDY8F_cmAxpoOkXE_6SR4o=.trap.gz (75 of 198)
+[2025-10-03 13:59:44] Importing big5prober.py.wIlsdwlO-iYG62HoVBWEesHyvRo=.trap.gz (76 of 198)
+[2025-10-03 13:59:44] Importing binascii.1e_pTeg8qyHfhVEg3b0YdZC5zgw=.trap.gz (77 of 198)
+[2025-10-03 13:59:44] Importing builtins.SvnF_hcLPa4kM_xBf6Bk4Zki-SU=.trap.gz (78 of 198)
+[2025-10-03 13:59:44] Importing certs.py.m7cpXewJIoD22F-SOp7Hk3h2jpg=.trap.gz (79 of 198)
+[2025-10-03 13:59:44] Importing chardet.VELghwjaGYdp8U1lr0574ttA4gs=.trap.gz (80 of 198)
+[2025-10-03 13:59:44] Importing chardetect.py.xUjtdM7BBB0SMl_43xGYmzWAZRg=.trap.gz (81 of 198)
+[2025-10-03 13:59:44] Importing chardistribution.py.WFekd4idpIxm-BI4uFhzdeIF_hw=.trap.gz (82 of 198)
+[2025-10-03 13:59:44] Importing charsetgroupprober.py.Lntsy1zEve6e7-_LlnKJISxQ6PA=.trap.gz (83 of 198)
+[2025-10-03 13:59:44] Importing charsetprober.py.jpbaM4iRpePpfFUr1PJ3u0te9xs=.trap.gz (84 of 198)
+[2025-10-03 13:59:44] Importing codingstatemachine.py.xykCd0LM9cqMtETEVZDTY6PHW3M=.trap.gz (85 of 198)
+[2025-10-03 13:59:44] Importing collections.wA1V_XKQRJhX-Y9u6rbEhQz1Egs=.trap.gz (86 of 198)
+[2025-10-03 13:59:44] Importing compat.py.EK4kVJ6PkZ9biCZ_LRa4Lu1p_AE=.trap.gz (87 of 198)
+[2025-10-03 13:59:44] Importing compat.py.I6SKlcefEm9y2MKLJ5wZ7eU4efo=.trap.gz (88 of 198)
+[2025-10-03 13:59:44] Importing compat.py.cEUk-HLDykTZLVce8b81E_L92Uc=.trap.gz (89 of 198)
+[2025-10-03 13:59:44] Importing conf.py.6hWyXghybVKRs-nsmZHQzqxCBIs=.trap.gz (90 of 198)
+[2025-10-03 13:59:44] Importing conftest.py.D6D7wtHfYDZHfFiotY8dZc5xVww=.trap.gz (91 of 198)
+[2025-10-03 13:59:44] Importing connection.py.UbJCNdFiYgsfos-f16yZ924fAwk=.trap.gz (92 of 198)
+[2025-10-03 13:59:44] Importing connection.py.ely1OijrvczMMEPh62AlvsLTJXw=.trap.gz (93 of 198)
+[2025-10-03 13:59:44] Importing connectionpool.py.Zoiyl6kkFctvEsC2YFbQLBSvWzc=.trap.gz (94 of 198)
+[2025-10-03 13:59:44] Importing constants.py.gFzUdZH5ut7rrlrJUosMSBT7_kg=.trap.gz (95 of 198)
+[2025-10-03 13:59:44] Importing contrib.4R7FVpf2N99MURf2-hqwiGtpb70=.trap.gz (96 of 198)
+[2025-10-03 13:59:44] Importing cookies.py.plbLDz-bSkKqWaWsWC0bVMOPVb0=.trap.gz (97 of 198)
+[2025-10-03 13:59:44] Importing cp949prober.py.OXWq9iLDg_C08Zw9nyJzmgIdNeY=.trap.gz (98 of 198)
+[2025-10-03 13:59:44] Importing dbm.MPhc4pE1v3y8PcOPfIXD1Lu_95c=.trap.gz (99 of 198)
+[2025-10-03 13:59:44] Importing docs.OGbmmpp0C4T3pGSFMMttSLrlFdE=.trap.gz (100 of 198)
+[2025-10-03 13:59:44] Importing email.-b4acJFRZ3BKvxb_FnW2RQnZamM=.trap.gz (101 of 198)
+[2025-10-03 13:59:44] Importing encodings.sAdpn8wDI16TAQZ2LN53jd1NMm8=.trap.gz (102 of 198)
+[2025-10-03 13:59:44] Importing errno.uclp9Yq2V-wlR5Y9NSdv9fSyyB4=.trap.gz (103 of 198)
+[2025-10-03 13:59:44] Importing escprober.py.BOwGgEcI0PktNHK8W62ROZ9Y7EY=.trap.gz (104 of 198)
+[2025-10-03 13:59:44] Importing escsm.py.DXxKEwU1TBwDcNkGHP5I4byjaOQ=.trap.gz (105 of 198)
+[2025-10-03 13:59:44] Importing eucjpprober.py.jaic1VTRSG43fHF2ehDxg72OQLw=.trap.gz (106 of 198)
+[2025-10-03 13:59:44] Importing euckrfreq.py.ulXBnnmTVmSZqmFRgfwKqJ74vl4=.trap.gz (107 of 198)
+[2025-10-03 13:59:44] Importing euckrprober.py.Cz5sQDL_6V3bEbx7aGJgYhhEu7A=.trap.gz (108 of 198)
+[2025-10-03 13:59:44] Importing euctwfreq.py.SN9EedurKjQGTtn-_QyNSlfZn24=.trap.gz (109 of 198)
+[2025-10-03 13:59:45] Importing euctwprober.py.HlWWThOs_UtngxjvoaXo-IthlZs=.trap.gz (110 of 198)
+[2025-10-03 13:59:45] Importing exceptions.py.-viqOA7tdF3cAOMrOd-GJtKC8IA=.trap.gz (111 of 198)
+[2025-10-03 13:59:45] Importing exceptions.py.VQtQPvRdUCWgJY-bT5wAVRf0zHo=.trap.gz (112 of 198)
+[2025-10-03 13:59:45] Importing fields.py.QYdYOaB9kqqqdWwYm42beHlDick=.trap.gz (113 of 198)
+[2025-10-03 13:59:45] Importing filepost.py.BlMotTHgfaQ7h6Ue9xdPbnnpTvA=.trap.gz (114 of 198)
+[2025-10-03 13:59:45] Importing flask_theme_support.py.EkEtE49wAauLc1ZSlFH7bdhhxnY=.trap.gz (115 of 198)
+[2025-10-03 13:59:45] Importing gb2312freq.py.GndZE-ZlOOTpBPKIBojXTXMqsxs=.trap.gz (116 of 198)
+[2025-10-03 13:59:45] Importing gb2312prober.py.XGJfnOJp8iKDr9avdQ4GF_sonHE=.trap.gz (117 of 198)
+[2025-10-03 13:59:45] Importing hebrewprober.py.HHjRVqztqeNsXi8_VY0j0N7J8lc=.trap.gz (118 of 198)
+[2025-10-03 13:59:45] Importing codeql-database.yml.trap.gz (119 of 198)
+[2025-10-03 13:59:45] Importing hooks.py.yuTHazdWoeFYFpoWW2o6XHeY9cw=.trap.gz (120 of 198)
+[2025-10-03 13:59:45] Importing html.F9rPk0UKlRItNJZXWZKPmtAcPpE=.trap.gz (121 of 198)
+[2025-10-03 13:59:45] Importing http.RTWZ2cmLKGW-DFLiBTn8MlgRLpw=.trap.gz (122 of 198)
+[2025-10-03 13:59:45] Importing importlib._2OZlu7PfZEQIceOHeFs4bqLp4I=.trap.gz (123 of 198)
+[2025-10-03 13:59:45] Importing itertools.dZgk6nHH3jkT_RMFgl4GMbL2wvQ=.trap.gz (124 of 198)
+[2025-10-03 13:59:45] Importing jisfreq.py.Jh_VI_DWFsHq_283d2PAhrd3yhE=.trap.gz (125 of 198)
+[2025-10-03 13:59:45] Importing jpcntx.py.fkKAuXRecuEyjxIAWm2S1FyU-5Y=.trap.gz (126 of 198)
+[2025-10-03 13:59:45] Importing json.-MaKwPtL_vN29iHCqRJBbujBUAc=.trap.gz (127 of 198)
+[2025-10-03 13:59:45] Importing langbulgarianmodel.py.OU5RYTK2oCYv6rTbgvcdiIt4slA=.trap.gz (128 of 198)
+[2025-10-03 13:59:45] Importing langcyrillicmodel.py.OxcwsHAqkpJ6oWJO0YwvW6w2uHs=.trap.gz (129 of 198)
+[2025-10-03 13:59:45] Importing langgreekmodel.py.9wVgDiaObVoiFtXyF-euvTFOL_o=.trap.gz (130 of 198)
+[2025-10-03 13:59:45] Importing langhebrewmodel.py.T8Amn_yWqMkcQBFBawEIxZR8G9c=.trap.gz (131 of 198)
+[2025-10-03 13:59:45] Importing langhungarianmodel.py.udNURSdABbgTTojlktlS4_Zyd_w=.trap.gz (132 of 198)
+[2025-10-03 13:59:45] Importing langthaimodel.py.mq1xJ8YMK9KqD457wnDoCZG5nBE=.trap.gz (133 of 198)
+[2025-10-03 13:59:45] Importing latin1prober.py.0LKQE4SYdk7wuFaoCCjUXh9UWQQ=.trap.gz (134 of 198)
+[2025-10-03 13:59:45] Importing logging.5ZmbYSPhprvo8ebxdn2wf47mOV0=.trap.gz (135 of 198)
+[2025-10-03 13:59:45] Importing makefile.py.efIak9PbqAbvUHDaVGvSeXJC3oo=.trap.gz (136 of 198)
+[2025-10-03 13:59:45] Importing mbcharsetprober.py.PDwfVQICvux-O7jkwCHjUipaJXI=.trap.gz (137 of 198)
+[2025-10-03 13:59:45] Importing mbcsgroupprober.py.XAlEJU5vieWpyNvK63G_mcGiBvI=.trap.gz (138 of 198)
+[2025-10-03 13:59:45] Importing mbcssm.py.qIdWYBCxokj03sVr2FpjAmrsYa0=.trap.gz (139 of 198)
+[2025-10-03 13:59:45] Importing metadata.trap.gz (140 of 198)
+[2025-10-03 13:59:45] Importing mime.Pws543jmxizQA1qrhV-T7Nn3Bjc=.trap.gz (141 of 198)
+[2025-10-03 13:59:45] Importing models.py.g3XlddC9TubTmgeUwGbZOzaYVXk=.trap.gz (142 of 198)
+[2025-10-03 13:59:45] Importing moves.jYJA0oKSM7hCf2qej56iuxsbgRI=.trap.gz (143 of 198)
+[2025-10-03 13:59:45] Importing ntlmpool.py.JZ4vLzMlanUiapn7r5aRfHDwLlw=.trap.gz (144 of 198)
+[2025-10-03 13:59:45] Importing ordered_dict.py._GGDSRqaZw2jqYzovYTs57dFqXY=.trap.gz (145 of 198)
+[2025-10-03 13:59:45] Importing packages.8qF0ygaCzvXB6q0xTK6G0MS3VPo=.trap.gz (146 of 198)
+[2025-10-03 13:59:45] Importing packages.wOZElWcf2_wOZ5Bb3YpHw3HyZjg=.trap.gz (147 of 198)
+[2025-10-03 13:59:45] Importing poolmanager.py.uFh2kgBrnFBNgzc3UPBRdd-w9J0=.trap.gz (148 of 198)
+[2025-10-03 13:59:45] Importing pyopenssl.py.cXG6NALdW38eTTTY2usSimTOUbY=.trap.gz (149 of 198)
+[2025-10-03 13:59:45] Importing re.kOws1bmOfu4KGk81mlma_d28aBk=.trap.gz (150 of 198)
+[2025-10-03 13:59:45] Importing request.py.SZrZNK2oVa2nadwZxDjz0fQJuGs=.trap.gz (151 of 198)
+[2025-10-03 13:59:45] Importing request.py.e4Qw6pRmHRAuEz2W4B1WawAWmDw=.trap.gz (152 of 198)
+[2025-10-03 13:59:45] Importing requests.p1rq2-Kxnilzo0zdZozOQLr-f-I=.trap.gz (153 of 198)
+[2025-10-03 13:59:45] Importing response.py.Tv9IpoJjv2WkObcXtM8USiaXwoU=.trap.gz (154 of 198)
+[2025-10-03 13:59:45] Importing response.py.hlAlkWkMsFZZ-SdUHheiFtLnrU0=.trap.gz (155 of 198)
+[2025-10-03 13:59:45] Importing retry.py._Aw7DS5-ZK9T-3sLlaHFblkHTGk=.trap.gz (156 of 198)
+[2025-10-03 13:59:45] Importing sbcharsetprober.py.Ttz-UMi7R4xecU1k_dWDibRVP7U=.trap.gz (157 of 198)
+[2025-10-03 13:59:45] Importing sbcsgroupprober.py.vBR1k-GcJZRMGOIrqsBNXMJ0XIY=.trap.gz (158 of 198)
+[2025-10-03 13:59:45] Importing select.aCHGsjF-GTXP8jO33Mw1KMsvLKM=.trap.gz (159 of 198)
+[2025-10-03 13:59:45] Importing server.py.ekGdeWqkh42OmlEcdMnkUO1fr9M=.trap.gz (160 of 198)
+[2025-10-03 13:59:45] Importing sessions.py.tLamkMhUtfsjsLXd5ND4k2rPt4g=.trap.gz (161 of 198)
+[2025-10-03 13:59:45] Importing setup.py.0HtdN2GC-Kal53DQcl0r3DotkD8=.trap.gz (162 of 198)
+[2025-10-03 13:59:45] Importing six.OANUHQsQJ-KI52ASK1kMSg9xZoE=.trap.gz (163 of 198)
+[2025-10-03 13:59:45] Importing six.py.NV-iGo0jsQKrydwcolwrFrp7y7w=.trap.gz (164 of 198)
+[2025-10-03 13:59:46] Importing sjisprober.py.PApnZnVc66LzqxJaUtr5COsFwkM=.trap.gz (165 of 198)
+[2025-10-03 13:59:46] Importing socks.py.wm32ZyE3NjZFZz4fqA6az1RSJNA=.trap.gz (166 of 198)
+[2025-10-03 13:59:46] Importing ssl_.py.MXzF7Hx_kWTWvuM1EmUk-sKpfFY=.trap.gz (167 of 198)
+[2025-10-03 13:59:46] Importing ssl_match_hostname.43AVE_Q59-NccMaCEi9_-FDVq9k=.trap.gz (168 of 198)
+[2025-10-03 13:59:46] Importing status_codes.py.RhGgfKA-pLqBWIyLXzIicHAHhw8=.trap.gz (169 of 198)
+[2025-10-03 13:59:46] Importing structures.py.4TZK-CFOHVf65zEKZkonQw3imno=.trap.gz (170 of 198)
+[2025-10-03 13:59:46] Importing sys.BD-dSpE1ms97sJeH8TpRmRogsyI=.trap.gz (171 of 198)
+[2025-10-03 13:59:46] Importing test_hooks.py.AaZJDnfhvnz4A2pmqueejHPNejY=.trap.gz (172 of 198)
+[2025-10-03 13:59:46] Importing test_lowlevel.py.RaZEgDCF-pn5fgx7y_RSVCYwLTs=.trap.gz (173 of 198)
+[2025-10-03 13:59:46] Importing test_requests.py.MBHolUVO-RLyeAsdKEOTQeq_e00=.trap.gz (174 of 198)
+[2025-10-03 13:59:46] Importing test_structures.py.rRDWXbgqfFqtBJ-D8cTxIlIYgiU=.trap.gz (175 of 198)
+[2025-10-03 13:59:46] Importing test_testserver.py.Lk4M9u_sv1vxLp9w2m5GBzD6I48=.trap.gz (176 of 198)
+[2025-10-03 13:59:46] Importing test_utils.py.zMJXKW8h9Gv2JXOGOTn3Iu_Mo_Q=.trap.gz (177 of 198)
+[2025-10-03 13:59:46] Importing tests.pXYduR4vLBiaAMfobk6pSj29tls=.trap.gz (178 of 198)
+[2025-10-03 13:59:46] Importing testserver.u4D9oH0N1NqRhSBjiH-QpcCbuks=.trap.gz (179 of 198)
+[2025-10-03 13:59:46] Importing time.B7Hkk4cvzEt4vuBfh8BQlUNZd8Q=.trap.gz (180 of 198)
+[2025-10-03 13:59:46] Importing timeout.py.83fW2Ag_6oJugxmMfiivJClnQbU=.trap.gz (181 of 198)
+[2025-10-03 13:59:46] Importing tkinter.1iw7ebiiWjGElQh6GAtXQbccsL0=.trap.gz (182 of 198)
+[2025-10-03 13:59:46] Importing universaldetector.py.tPcYNBKzROuZ6Jhqw2S6BlWFfLs=.trap.gz (183 of 198)
+[2025-10-03 13:59:46] Importing url.py.JhFasnJD6vmrOrOz39RjS4YfNTM=.trap.gz (184 of 198)
+[2025-10-03 13:59:46] Importing urllib.KrE8ajiCmfE7Ps4EjbAYtIxkUG4=.trap.gz (185 of 198)
+[2025-10-03 13:59:46] Importing urllib.R-gByht2M9r2N7xTVNQoUe1Zeq0=.trap.gz (186 of 198)
+[2025-10-03 13:59:46] Importing urllib3.9-BaUujl9GAfYeT4LR536ZBI6rk=.trap.gz (187 of 198)
+[2025-10-03 13:59:46] Importing urllib_error.py.cTqmcNrOJfoGeJqbobGCegO9zzM=.trap.gz (188 of 198)
+[2025-10-03 13:59:46] Importing urllib_parse.py.tNDmQ-ogSyU08QGv-AP4VEMl5Mg=.trap.gz (189 of 198)
+[2025-10-03 13:59:46] Importing urllib_request.py.bW9zM2Q6x5rLaDEijakcWimCkjI=.trap.gz (190 of 198)
+[2025-10-03 13:59:46] Importing urllib_response.py.PO3dlM7ugCrkp2U0ZpsJCMMSPp0=.trap.gz (191 of 198)
+[2025-10-03 13:59:46] Importing urllib_robotparser.py._fPMdcsXL8KtZJQljNU3P8YfE1g=.trap.gz (192 of 198)
+[2025-10-03 13:59:46] Importing utf8prober.py.MLloaowO-NmopAasrgwYLqXeLCk=.trap.gz (193 of 198)
+[2025-10-03 13:59:46] Importing util.L1nu2N7IMBTw7XGCSWWk1H_2ycc=.trap.gz (194 of 198)
+[2025-10-03 13:59:46] Importing utils.py.0K6ZPUP0xwnMkYBMI6wecXP5gyY=.trap.gz (195 of 198)
+[2025-10-03 13:59:46] Importing utils.py.qLmii7q4BblzsviEDfJCqaObq6U=.trap.gz (196 of 198)
+[2025-10-03 13:59:46] Importing xmlrpc.zHXcRX8tyLZ6UMwU9rQFhqh61Tw=.trap.gz (197 of 198)
+[2025-10-03 13:59:46] Importing zlib.mi_3ycO1Z0lTYlAHp9yD8zFBq3o=.trap.gz (198 of 198)
+[2025-10-03 13:59:46] [PROGRESS] dataset import> Merging relations
+[2025-10-03 13:59:46] Merging 1 fragment for 'files'.
+[2025-10-03 13:59:46] Merged 244 bytes for 'files'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'folders'.
+[2025-10-03 13:59:46] Merged 139 bytes for 'folders'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'containerparent'.
+[2025-10-03 13:59:46] Merged 283 bytes for 'containerparent'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_flags_versioned'.
+[2025-10-03 13:59:46] Merged 189 bytes for 'py_flags_versioned'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cobjects'.
+[2025-10-03 13:59:46] Merged 23223 bytes (22.68 KiB) for 'py_cobjects'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-10-03 13:59:46] Merged 32296 bytes (31.54 KiB) for 'py_cobjecttypes'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cobject_sources'.
+[2025-10-03 13:59:46] Merged 25512 bytes (24.91 KiB) for 'py_cobject_sources'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cobjectnames'.
+[2025-10-03 13:59:46] Merged 43673 bytes (42.65 KiB) for 'py_cobjectnames'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-10-03 13:59:46] Merged 8732 bytes (8.53 KiB) for 'py_cmembers_versioned'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_special_objects'.
+[2025-10-03 13:59:46] Merged 135 bytes for 'py_special_objects'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_citems'.
+[2025-10-03 13:59:46] Merged 544 bytes for 'py_citems'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'ext_rettype'.
+[2025-10-03 13:59:46] Merged 4051 bytes (3.96 KiB) for 'ext_rettype'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'ext_argtype'.
+[2025-10-03 13:59:46] Merged 6816 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'ext_argreturn'.
+[2025-10-03 13:59:46] Merged 41 bytes for 'ext_argreturn'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'ext_proptype'.
+[2025-10-03 13:59:46] Merged 345 bytes for 'ext_proptype'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_Modules'.
+[2025-10-03 13:59:46] Merged 162 bytes for 'py_Modules'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_module_path'.
+[2025-10-03 13:59:46] Merged 385 bytes for 'py_module_path'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'variable'.
+[2025-10-03 13:59:46] Merged 30166 bytes (29.46 KiB) for 'variable'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_extracted_version'.
+[2025-10-03 13:59:46] Merged 144 bytes for 'py_extracted_version'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_stmt_lists'.
+[2025-10-03 13:59:46] Merged 10695 bytes (10.44 KiB) for 'py_stmt_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_stmts'.
+[2025-10-03 13:59:46] Merged 36391 bytes (35.54 KiB) for 'py_stmts'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_scopes'.
+[2025-10-03 13:59:46] Merged 140446 bytes (137.15 KiB) for 'py_scopes'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_exprs'.
+[2025-10-03 13:59:46] Merged 327695 bytes (320.01 KiB) for 'py_exprs'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_strs'.
+[2025-10-03 13:59:46] Merged 43687 bytes (42.66 KiB) for 'py_strs'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_alias_lists'.
+[2025-10-03 13:59:46] Merged 1585 bytes (1.55 KiB) for 'py_alias_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_aliases'.
+[2025-10-03 13:59:46] Merged 2617 bytes (2.56 KiB) for 'py_aliases'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_ints'.
+[2025-10-03 13:59:46] Merged 1178 bytes (1.15 KiB) for 'py_ints'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_bools'.
+[2025-10-03 13:59:46] Merged 1474 bytes (1.44 KiB) for 'py_bools'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_variables'.
+[2025-10-03 13:59:46] Merged 39349 bytes (38.43 KiB) for 'py_variables'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_expr_contexts'.
+[2025-10-03 13:59:46] Merged 67742 bytes (66.15 KiB) for 'py_expr_contexts'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_expr_lists'.
+[2025-10-03 13:59:46] Merged 33867 bytes (33.07 KiB) for 'py_expr_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-10-03 13:59:46] Merged 2352 bytes (2.30 KiB) for 'py_cmpop_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_cmpops'.
+[2025-10-03 13:59:46] Merged 3191 bytes (3.12 KiB) for 'py_cmpops'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_numbers'.
+[2025-10-03 13:59:46] Merged 542545 bytes (529.83 KiB) for 'py_numbers'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_operators'.
+[2025-10-03 13:59:46] Merged 1474 bytes (1.44 KiB) for 'py_operators'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_arguments'.
+[2025-10-03 13:59:46] Merged 2667 bytes (2.60 KiB) for 'py_arguments'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_Functions'.
+[2025-10-03 13:59:46] Merged 2735 bytes (2.67 KiB) for 'py_Functions'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_parameter_lists'.
+[2025-10-03 13:59:46] Merged 2671 bytes (2.61 KiB) for 'py_parameter_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_Classes'.
+[2025-10-03 13:59:46] Merged 633 bytes for 'py_Classes'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-10-03 13:59:46] Merged 1502 bytes (1.47 KiB) for 'py_dict_item_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_dict_items'.
+[2025-10-03 13:59:46] Merged 3985 bytes (3.89 KiB) for 'py_dict_items'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_exports'.
+[2025-10-03 13:59:46] Merged 1113 bytes (1.09 KiB) for 'py_exports'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_flow_bb_node'.
+[2025-10-03 13:59:46] Merged 410371 bytes (400.75 KiB) for 'py_flow_bb_node'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_scope_flow'.
+[2025-10-03 13:59:46] Merged 19812 bytes (19.35 KiB) for 'py_scope_flow'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_successors'.
+[2025-10-03 13:59:46] Merged 262985 bytes (256.82 KiB) for 'py_successors'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_idoms'.
+[2025-10-03 13:59:46] Merged 257054 bytes (251.03 KiB) for 'py_idoms'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_ssa_var'.
+[2025-10-03 13:59:46] Merged 16113 bytes (15.74 KiB) for 'py_ssa_var'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_ssa_defn'.
+[2025-10-03 13:59:46] Merged 13942 bytes (13.62 KiB) for 'py_ssa_defn'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_ssa_use'.
+[2025-10-03 13:59:46] Merged 22558 bytes (22.03 KiB) for 'py_ssa_use'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_exception_successors'.
+[2025-10-03 13:59:46] Merged 1860 bytes (1.82 KiB) for 'py_exception_successors'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_true_successors'.
+[2025-10-03 13:59:46] Merged 3514 bytes (3.43 KiB) for 'py_true_successors'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_false_successors'.
+[2025-10-03 13:59:46] Merged 3592 bytes (3.51 KiB) for 'py_false_successors'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_ssa_phi'.
+[2025-10-03 13:59:46] Merged 3119 bytes (3.05 KiB) for 'py_ssa_phi'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'locations_ast'.
+[2025-10-03 13:59:46] Merged 526158 bytes (513.83 KiB) for 'locations_ast'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_scope_location'.
+[2025-10-03 13:59:46] Merged 3598 bytes (3.51 KiB) for 'py_scope_location'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_comments'.
+[2025-10-03 13:59:46] Merged 17068 bytes (16.67 KiB) for 'py_comments'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_codelines'.
+[2025-10-03 13:59:46] Merged 2908 bytes (2.84 KiB) for 'py_codelines'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_commentlines'.
+[2025-10-03 13:59:46] Merged 2363 bytes (2.31 KiB) for 'py_commentlines'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_docstringlines'.
+[2025-10-03 13:59:46] Merged 2336 bytes (2.28 KiB) for 'py_docstringlines'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_alllines'.
+[2025-10-03 13:59:46] Merged 2970 bytes (2.90 KiB) for 'py_alllines'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'numlines'.
+[2025-10-03 13:59:46] Merged 615 bytes for 'numlines'.
+[2025-10-03 13:59:46] Merging 2 fragments for 'py_locations'.
+[2025-10-03 13:59:46] Merged 262338 bytes (256.19 KiB) for 'py_locations'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_boolops'.
+[2025-10-03 13:59:46] Merged 879 bytes for 'py_boolops'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_unaryops'.
+[2025-10-03 13:59:46] Merged 849 bytes for 'py_unaryops'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-10-03 13:59:46] Merged 195 bytes for 'py_StringPart_lists'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'py_StringParts'.
+[2025-10-03 13:59:46] Merged 473 bytes for 'py_StringParts'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'yaml_scalars'.
+[2025-10-03 13:59:46] Merged 167 bytes for 'yaml_scalars'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'yaml'.
+[2025-10-03 13:59:46] Merged 551 bytes for 'yaml'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'locations_default'.
+[2025-10-03 13:59:46] Merged 493 bytes for 'locations_default'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'yaml_locations'.
+[2025-10-03 13:59:46] Merged 183 bytes for 'yaml_locations'.
+[2025-10-03 13:59:46] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-10-03 13:59:46] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-10-03 13:59:46] Saving string and id pools to disk.
+[2025-10-03 13:59:46] Finished importing TRAP files.
+[2025-10-03 13:59:46] Read 53.09 MiB of uncompressed TRAP data.
+[2025-10-03 13:59:46] Uncompressed relation data size: 15.08 MiB
+[2025-10-03 13:59:46] Relation data size: 3.14 MiB (merge rate: 9.68 MiB/s)
+[2025-10-03 13:59:46] String pool size: 2.78 MiB
+[2025-10-03 13:59:46] ID pool size: 1.75 MiB
+[2025-10-03 13:59:46] [PROGRESS] dataset import> Finished writing database (relations: 3.14 MiB; string pool: 2.78 MiB).
+[2025-10-03 13:59:46] Pausing evaluation to close the cache at sequence stamp o+161
+[2025-10-03 13:59:46] The disk cache is freshly trimmed; leave it be.
+[2025-10-03 13:59:46] Unpausing evaluation
+[2025-10-03 13:59:46] Plumbing command codeql dataset import completed.
+[2025-10-03 13:59:46] [PROGRESS] database finalize> TRAP import complete (2.9s).
+[2025-10-03 13:59:46] Running plumbing command: codeql database cleanup -- /home/ateske/buggyRequests/requests/codeql-db
+[2025-10-03 13:59:46] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-10-03 13:59:46] [PROGRESS] database cleanup> TRAP files cleaned up (9ms).
+[2025-10-03 13:59:46] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-10-03 13:59:46] [PROGRESS] database cleanup> Scratch directory cleaned up (9ms).
+[2025-10-03 13:59:46] Running plumbing command: codeql dataset cleanup -- /home/ateske/buggyRequests/requests/codeql-db/db-python
+[2025-10-03 13:59:46] [PROGRESS] dataset cleanup> Cleaning up dataset in /home/ateske/buggyRequests/requests/codeql-db/db-python.
+[2025-10-03 13:59:46] Trimming disk cache at /home/ateske/buggyRequests/requests/codeql-db/db-python/default/cache in mode trim.
+[2025-10-03 13:59:46] Sequence stamp origin is -5996829245771890263
+[2025-10-03 13:59:46] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-10-03 13:59:46] Unpausing evaluation
+[2025-10-03 13:59:46] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-10-03 13:59:46] Unpausing evaluation
+[2025-10-03 13:59:46] Trimming completed (2ms): Trimmed disposable data from cache.
+[2025-10-03 13:59:46] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-10-03 13:59:46] The disk cache is freshly trimmed; leave it be.
+[2025-10-03 13:59:46] Unpausing evaluation
+[2025-10-03 13:59:46] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-10-03 13:59:46] [PROGRESS] dataset cleanup> Finalizing dataset in /home/ateske/buggyRequests/requests/codeql-db/db-python
+[2025-10-03 13:59:46] [DETAILS] dataset cleanup> Finished deleting ID pool from /home/ateske/buggyRequests/requests/codeql-db/db-python (1ms).
+[2025-10-03 13:59:46] Plumbing command codeql dataset cleanup completed.
+[2025-10-03 13:59:46] Plumbing command codeql database cleanup completed with status 0.
+[2025-10-03 13:59:46] [PROGRESS] database finalize> Finished zipping source archive (339.23 KiB).
+[2025-10-03 13:59:46] Plumbing command codeql database finalize completed.
+[2025-10-03 13:59:46] [PROGRESS] database create> Successfully created database at /home/ateske/buggyRequests/requests/codeql-db.
+[2025-10-03 13:59:46] Terminating normally.
