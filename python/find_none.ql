@@ -13,7 +13,26 @@ private module NoneFlowConfig implements DataFlow::ConfigSig {
     )
   }
 
-    predicate isSink(DataFlow::Node sink) {
+  predicate isSink(DataFlow::Node sink) {
+    // Existing sinks: left or any comparator of a comparison
+    exists(Compare cmp |
+      sink.asExpr() = cmp.getLeft() or
+      exists(Expr right |
+        cmp.getAComparator() = right and
+        sink.asExpr() = right
+      )
+    )
+    or
+    // New sink: unary expressions with operator "not"
+    exists(UnaryExpr ue |
+      sink.asExpr() = ue and
+      ue.getOp().toString() = "not"
+    )
+  }
+
+
+/** 
+   predicate isSink(DataFlow::Node sink) {
     exists(Compare cmp |
         sink.asExpr() = cmp.getLeft() or
         exists(Expr right |
@@ -21,7 +40,7 @@ private module NoneFlowConfig implements DataFlow::ConfigSig {
         sink.asExpr() = right
         )
     )
-    }
+    }*/
 
 }
 
