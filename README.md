@@ -6,7 +6,11 @@ The command to build the database was
 codeql database create ../codeql_python_databases/buggy-clusterfuzz-codeql-db --language=python
 ```
 find_none.ql finds every variable potentially of type None which is used as a comparator or 
-as a unary operator with the keyword **not**.
+as a unary operator with the keyword **not**. This is done using dataflow analysis. 
+
+The source is any variable which is equal to None. The sink is any node which is used in a comparison
+statement or which is used in a unary expression with the keyword **not**. If there is a path between
+the source node and the sink node, this path is selected as potentially problematic. 
 
 ---
 Dynamic Variables Query:
