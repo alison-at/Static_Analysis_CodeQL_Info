@@ -8,6 +8,7 @@ private module NoneFlowConfig implements DataFlow::ConfigSig {
   predicate isSource(DataFlow::Node source) {
     exists(Assign assign, Expr lhs |
       assign.getValue() instanceof None and
+      //this is redundant over two lines, checking that the assigned variable is the source
       assign.getATarget() = lhs and
       source.asExpr() = lhs
     )
@@ -17,6 +18,9 @@ private module NoneFlowConfig implements DataFlow::ConfigSig {
     // Existing sinks: left or any comparator of a comparison
     exists(Compare cmp |
       sink.asExpr() = cmp.getLeft() or
+
+      //there is no getRight() because comparisons can have multiple comparators
+      // we check each comparator to see if the sink matches any of them
       exists(Expr right |
         cmp.getAComparator() = right and
         sink.asExpr() = right
